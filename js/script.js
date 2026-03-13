@@ -120,4 +120,91 @@ document.addEventListener('DOMContentLoaded', () => {
         counterObserver.observe(counterSection);
     }
 
+    // News Carousel
+    const newsTrack = document.getElementById('news-track');
+    const newsPrev = document.getElementById('news-prev');
+    const newsNext = document.getElementById('news-next');
+    const newsIndicators = document.querySelectorAll('.carousel-indicator');
+    
+    if (newsTrack) {
+        let currentIndex = 0;
+        const totalSlides = newsIndicators.length;
+        let slideInterval;
+
+        const updateCarousel = (index) => {
+            newsTrack.style.transform = `translateX(-${index * 100}%)`;
+            newsIndicators.forEach(ind => ind.classList.remove('active'));
+            newsIndicators[index].classList.add('active');
+            currentIndex = index;
+        };
+
+        const nextSlide = () => {
+            const nextIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel(nextIndex);
+        };
+
+        const prevSlide = () => {
+            const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel(prevIndex);
+        };
+
+        newsNext.addEventListener('click', () => {
+             nextSlide();
+             resetInterval();
+        });
+        
+        newsPrev.addEventListener('click', () => {
+             prevSlide();
+             resetInterval();
+        });
+
+        newsIndicators.forEach(indicator => {
+            indicator.addEventListener('click', (e) => {
+                const targetIndex = parseInt(e.target.getAttribute('data-index'));
+                updateCarousel(targetIndex);
+                resetInterval();
+            });
+        });
+
+        // Auto slide
+        const startInterval = () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        };
+
+        const resetInterval = () => {
+            clearInterval(slideInterval);
+            startInterval();
+        };
+
+        startInterval();
+    }
+
+    // Developer Popup
+    const developerPopup = document.getElementById('developer-popup');
+    const closePopupBtn = document.getElementById('close-popup');
+
+    if (developerPopup && closePopupBtn) {
+        let popupTimer;
+
+        const showPopup = () => {
+            developerPopup.classList.add('show');
+            // Hide after 4 seconds
+            popupTimer = setTimeout(hidePopup, 4000);
+        };
+
+        const hidePopup = () => {
+            developerPopup.classList.remove('show');
+            // Show again after 10 seconds
+            popupTimer = setTimeout(showPopup, 10000);
+        };
+
+        // Start the initial cycle after 2.5 seconds
+        popupTimer = setTimeout(showPopup, 2500);
+
+        closePopupBtn.addEventListener('click', () => {
+            clearTimeout(popupTimer);
+            developerPopup.classList.remove('show');
+        });
+    }
+
 });

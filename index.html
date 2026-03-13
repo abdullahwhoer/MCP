@@ -43,6 +43,7 @@
                     <li><a href="#programs">Programs</a></li>
                     <li><a href="#staff">Faculty</a></li>
                     <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#news">News</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <a href="#contact" class="btn btn-primary nav-btn">Apply Now</a>
@@ -272,6 +273,51 @@
             </div>
         </section>
 
+        <!-- News & Events Section -->
+        <section id="news" class="section-padding">
+            <div class="container">
+                <div class="text-center reveal">
+                    <h2 class="section-title">News & Events</h2>
+                    <p class="section-subtitle">Stay updated with the latest happenings at The Muslim College.</p>
+                </div>
+
+                <div class="carousel-container reveal">
+                    <div class="carousel-track" id="news-track">
+                        <div class="carousel-slide">
+                            <img src="./images/f1.jpg" alt="Event 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/f2.jpg" alt="Event 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/f3.jpg" alt="Event 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/f4.jpg" alt="Event 4">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./images/e5.jpg" alt="Event 5">
+                        </div>
+                    </div>
+
+                    <button class="carousel-button carousel-button-left" id="news-prev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-button carousel-button-right" id="news-next">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carousel-nav" id="news-nav">
+                        <div class="carousel-indicator active" data-index="0"></div>
+                        <div class="carousel-indicator" data-index="1"></div>
+                        <div class="carousel-indicator" data-index="2"></div>
+                        <div class="carousel-indicator" data-index="3"></div>
+                        <div class="carousel-indicator" data-index="4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Achievements Section -->
         <section id="achievements" class="achievements-section">
             <div class="container">
@@ -392,6 +438,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Developer Popup -->
+    <div id="developer-popup" class="developer-popup">
+        <div class="popup-content">
+            <p>Website developed by <a href="https://abdullah-saqib.vercel.app/" target="_blank"><strong>Abdullah Saqib</strong></a></p>
+            <button id="close-popup" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

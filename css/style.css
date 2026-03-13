@@ -39,6 +39,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
@@ -200,6 +201,7 @@ img {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
+  margin-top: 30px;
 }
 
 .hero h1 {
@@ -740,6 +742,108 @@ img {
   letter-spacing: 1px;
 }
 
+/* News & Events Carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  height: 500px;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  /* background-; */
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+.carousel-button:hover {
+  background: var(--text-white);
+  color: var(--secondary);
+}
+
+.carousel-button-left {
+  left: 20px;
+}
+
+.carousel-button-right {
+  right: 20px;
+}
+
+.carousel-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.carousel-indicator.active {
+  background: var(--secondary);
+  width: 24px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    height: 300px;
+  }
+
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
 /* Contact Premium Section */
 .contact-premium-wrapper {
   background-color: var(--primary);
@@ -845,6 +949,8 @@ img {
 .cp-info p {
   color: var(--text-light);
   line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Footer Section */
@@ -1049,10 +1155,94 @@ img {
   }
 
   .cp-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
     gap: 1rem;
     padding: 1rem;
+  }
+
+  .cp-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .cp-info h4 {
+    font-size: 1.1rem;
+  }
+
+  .cp-info p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Developer Popup */
+.developer-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--text-white);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  padding: 1rem 1.5rem;
+  z-index: 9999;
+  transform: translateY(150%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-left: 5px solid var(--primary);
+  max-width: 90vw;
+}
+
+.developer-popup.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.developer-popup .popup-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.developer-popup p {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.developer-popup a {
+  color: var(--primary);
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.developer-popup a:hover {
+  color: var(--secondary);
+}
+
+.developer-popup button {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.developer-popup button:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .developer-popup {
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+    padding: 0.8rem 1.2rem;
   }
 }
