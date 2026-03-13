@@ -207,4 +207,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // GSAP Floating Pen Animation
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("#floating-pen", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1.5, // Smoothly animate on scroll
+                onUpdate: (self) => {
+                    // Slight color shift based on scroll progress
+                    const opacity = 0.08 + (self.progress * 0.07);
+                    gsap.set("#floating-pen", { color: `rgba(15, 23, 42, ${opacity})` });
+                }
+            },
+            x: "80vw", // Move across screen
+            y: "70vh", // Move down screen
+            rotation: 360, // Spin the pen
+            ease: "none"
+        });
+    }
+
 });

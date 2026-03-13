@@ -16,10 +16,19 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!-- Floating Pen Animation Element -->
+    <div class="floating-pen" id="floating-pen">
+        <i class="fa-solid fa-pen-nib"></i>
+    </div>
+
     <!-- Navbar -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
@@ -427,7 +436,7 @@
                     <div class="map-container">
                         <div class="map-placeholder">
                             <i class="fa-solid fa-map-location-dot"></i>
-                            <p>Map Embedded Here</p>
+                            <p>Map not availible yet</p>
                         </div>
                     </div>
                 </div>
@@ -442,7 +451,8 @@
     <!-- Developer Popup -->
     <div id="developer-popup" class="developer-popup">
         <div class="popup-content">
-            <p>Website developed by <a href="https://abdullah-saqib.vercel.app/" target="_blank"><strong>Abdullah Saqib</strong></a></p>
+            <p>Website developed by <a href="https://abdullah-saqib.vercel.app/" target="_blank"><strong>Abdullah
+                        Saqib</strong></a></p>
             <button id="close-popup" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
         </div>
     </div>

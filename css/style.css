@@ -45,10 +45,31 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text-dark);
-  background-color: var(--bg-color);
+  background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #f8fafc, #f1f5f9);
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
   line-height: 1.6;
   overflow-x: hidden;
 }
+
+.floating-pen {
+  position: fixed;
+  top: 15%;
+  left: 10%;
+  font-size: 15rem;
+  color: rgba(15, 23, 42, 0.08); /* Increased visibility */
+  z-index: -1;
+  pointer-events: none;
+  transform: rotate(-45deg);
+  transition: color 0.3s ease;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 h1,
 h2,
@@ -235,7 +256,8 @@ img {
 
 /* About Section */
 .bg-alt {
-  background-color: var(--bg-alt);
+  background-color: rgba(241, 245, 249, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 .about-grid {
