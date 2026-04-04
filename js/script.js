@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hidePopup = () => {
             developerPopup.classList.remove('show');
             // Show again after 10 seconds
-            popupTimer = setTimeout(showPopup, 10000);
+            popupTimer = setTimeout(showPopup, 30000);
         };
 
         // Start the initial cycle after 2.5 seconds
