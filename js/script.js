@@ -179,31 +179,41 @@ document.addEventListener('DOMContentLoaded', () => {
         startInterval();
     }
 
-    // Developer Popup
-    const developerPopup = document.getElementById('developer-popup');
-    const closePopupBtn = document.getElementById('close-popup');
+    // Announcement Popup
+    const announcementPopup = document.getElementById('announcement-popup');
+    const closeAnnouncementPopupBtn = document.getElementById('close-announcement-popup');
 
-    if (developerPopup && closePopupBtn) {
-        let popupTimer;
-
-        const showPopup = () => {
-            developerPopup.classList.add('show');
-            // Hide after 4 seconds
-            popupTimer = setTimeout(hidePopup, 4000);
+    if (announcementPopup && closeAnnouncementPopupBtn) {
+        const showAnnouncementPopup = () => {
+            announcementPopup.classList.add('show');
+            announcementPopup.setAttribute('aria-hidden', 'false');
         };
 
-        const hidePopup = () => {
-            developerPopup.classList.remove('show');
-            // Show again after 10 seconds
-            popupTimer = setTimeout(showPopup, 30000);
+        const hideAnnouncementPopup = () => {
+            announcementPopup.classList.remove('show');
+            announcementPopup.setAttribute('aria-hidden', 'true');
         };
 
-        // Start the initial cycle after 2.5 seconds
-        popupTimer = setTimeout(showPopup, 2500);
+        // Show once as soon as the site loads, then every 7 seconds.
+        showAnnouncementPopup();
+        const popupInterval = setInterval(showAnnouncementPopup, 52000);
 
-        closePopupBtn.addEventListener('click', () => {
-            clearTimeout(popupTimer);
-            developerPopup.classList.remove('show');
+        closeAnnouncementPopupBtn.addEventListener('click', hideAnnouncementPopup);
+
+        announcementPopup.addEventListener('click', (event) => {
+            if (event.target === announcementPopup) {
+                hideAnnouncementPopup();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                hideAnnouncementPopup();
+            }
+        });
+
+        window.addEventListener('beforeunload', () => {
+            clearInterval(popupInterval);
         });
     }
 

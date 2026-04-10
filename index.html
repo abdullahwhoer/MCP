@@ -364,8 +364,8 @@
                         <p>Our admissions team is here to answer your questions and guide you through the enrollment
                             process. Connect with us to begin your journey of academic excellence.</p>
                         <div class="social-premium">
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/mctpeshwar"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://wa.me/923139255577" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                             <a href="#"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
@@ -375,14 +375,14 @@
                             <div class="cp-icon"><i class="fa-solid fa-location-dot"></i></div>
                             <div class="cp-info">
                                 <h4>Visit Campus</h4>
-                                <p>Eid-Gah Road, near CNG Pump,<br>Peshawar, KPK</p>
+                                <p>Eid-Gah Road, near Amin CNG Ashrafia Colony,<br>Peshawar, KPK</p>
                             </div>
                         </div>
                         <div class="cp-card">
                             <div class="cp-icon"><i class="fa-solid fa-phone"></i></div>
                             <div class="cp-info">
                                 <h4>Contact Us</h4>
-                                <p>+92 300 1234567<br>+92 91 1234567</p>
+                                <p>+92 3139255577<br>091-2040680</p>
                             </div>
                         </div>
                         <div class="cp-card">
@@ -404,6 +404,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="#" class="logo footer-logo">
+                        <!-- ? -->
                         <i class="fa-solid fa-building-columns"></i>
                         <div class="logo-text">
                             <span class="main-text">The Muslim College</span>
@@ -434,10 +435,14 @@
                 <div class="footer-map">
                     <h3>Location</h3>
                     <div class="map-container">
-                        <div class="map-placeholder">
-                            <i class="fa-solid fa-map-location-dot"></i>
-                            <p>Map not availible yet</p>
-                        </div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13226.9642279814!2d71.55861898715818!3d34.02485710000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d93d8192cabfd9%3A0x8514289f2c1cc8e4!2sMuslim%20College!5e0!3m2!1sen!2s!4v1775826677884!5m2!1sen!2s"
+                            width="600"
+                            height="450"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -448,12 +453,13 @@
         </div>
     </footer>
 
-    <!-- Developer Popup -->
-    <div id="developer-popup" class="developer-popup">
-        <div class="popup-content">
-            <p>Website developed by <a href="https://abdullah-saqib.vercel.app/" target="_blank"><strong>Abdullah
-                        Saqib</strong></a></p>
-            <button id="close-popup" aria-label="Close popup"><i class="fa-solid fa-xmark"></i></button>
+    <!-- Announcement Popup -->
+    <div id="announcement-popup" class="announcement-popup" aria-hidden="true">
+        <div class="announcement-dialog" role="dialog" aria-modal="true" aria-label="Announcement">
+            <button id="close-announcement-popup" class="announcement-close" aria-label="Close announcement popup">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img src="images/dit.jpg" alt="College announcement" class="announcement-image">
         </div>
     </div>
 
