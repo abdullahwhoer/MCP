@@ -28,6 +28,9 @@
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --announcement-height: 44px;
+  --announcement-gap: 2rem;
+  --announcement-speed: 18s;
 }
 
 /* Base Styles */
@@ -39,7 +42,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
+  scroll-padding-top: calc(110px + var(--announcement-height));
 }
 
 body {
@@ -190,7 +193,7 @@ img {
   background-position: center;
   background-attachment: fixed;
   color: var(--text-white);
-  padding-top: 80px;
+  padding-top: calc(80px + var(--announcement-height));
   /* offset navbar */
 }
 
@@ -396,9 +399,51 @@ img {
 }
 
 /* Navbar */
-.navbar {
+.announcement-bar {
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--announcement-height);
+  z-index: 1101;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0f172a, #1e293b, #0f172a);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.2);
+}
+
+.announcement-track {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: var(--announcement-gap);
+  white-space: nowrap;
+  will-change: transform;
+  animation: announcementScroll var(--announcement-speed) linear infinite;
+}
+
+.announcement-track span {
+  color: #f8fafc;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  font-size: 0.95rem;
+  flex: 0 0 auto;
+}
+
+@keyframes announcementScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - (var(--announcement-gap) / 2)));
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: var(--announcement-height);
   left: 0;
   width: 100%;
   background-color: var(--text-white);
@@ -1275,6 +1320,16 @@ img {
 }
 
 @media (max-width: 576px) {
+  :root {
+    --announcement-height: 38px;
+    --announcement-gap: 1.2rem;
+    --announcement-speed: 14s;
+  }
+
+  .announcement-track span {
+    font-size: 0.82rem;
+  }
+
   .announcement-dialog {
     width: 92vw;
     max-height: 76vh;
